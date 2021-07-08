@@ -39,7 +39,7 @@ const Article = (props) => {
     }
     
     return (
-        <div className="article" style={{background: isEditing ? "#54dafb" : "white"}}>
+        <div className="article" style={{background: isEditing ? "##c7ecee" : "white"}}>
             <div className="card-header">
                 <h3>{props.article.author}</h3>
                 <em>Poste le {dateParser(props.article.date)}</em>
