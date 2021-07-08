@@ -24,7 +24,7 @@ const Article = (props) => {
     const handleEdit = () =>{
         const data={
             author: props.article.author,
-            content: editedContent,
+            content: editedContent ? editedContent : props.article.content,
             date: props.article.date
         }
         axios.put("http://localhost:3003/articles/" +props.article.id,data)
@@ -34,8 +34,10 @@ const Article = (props) => {
             //window.location.reload();
             props.getData();
         })
+    }
 
-        
+    const handleDelete = () =>{
+        axios.delete("http://localhost:3003/articles/" +props.article.id).then(()=>props.getData());
     }
     
     return (
@@ -52,7 +54,10 @@ const Article = (props) => {
             <div className="btn-container">
                 {isEditing ? (<button onClick={handleEdit}>Valider</button>) : (<button onClick={ () => setIsEditing(true)}>Edit</button>)}
                 
-                <button>Delete</button>
+                <button onClick={() =>{
+                    if(window.confirm("Etes vous sur de vouloir supprimmer cet article?"))
+                        handleDelete();
+                }}>Delete</button>
             </div>
         </div>
     );
