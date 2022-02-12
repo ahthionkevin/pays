@@ -17,7 +17,7 @@ const Countries = () => {
     useEffect(() => {
         if(playOnce)
         {
-            axios.get("https://restcountries.eu/rest/v2/all?fields=name;population;capital;region;flag").then((res) =>{
+            axios.get("https://restcountries.eu/rest/v3.1/all?fields=name;population;capital;region;flag").then((res) =>{
                 setstate(res.data);
                 setPlayOnce(false);
             });
