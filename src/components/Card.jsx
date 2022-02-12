@@ -19,11 +19,11 @@ const Card = (props) => {
     }
     return (
         <li className="card">
-            <img height='200px' src={ props.country.flag } alt={props.country.name + " s'flag"}/>
+            <img height='200px' src={ props.country.flags.svg } alt={props.country.name.common + " s'flag"}/>
             <div className="data-container">
                 <ul>
-                    <li>{props.country.name}</li>
-                    <li>{'Capital: ' + props.country.capital}</li>
+                    <li>{props.country.name.common}</li>
+                    <li>{'Capital: ' + props.country.capital[0]}</li>
                     <li>{numStr(props.country.population) + ' persons'}</li>
                 </ul>
             </div>
