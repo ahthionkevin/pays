@@ -17,7 +17,7 @@ const Countries = () => {
     useEffect(() => {
         if(playOnce)
         {
-            axios.get("https://restcountries.com/v3.1/all?fields=name;population;capital;region;flag").then((res) =>{
+            axios.get("https://restcountries.com/v3.1/all?fields=name,population,capital,region,flags").then((res) =>{
                 setstate(res.data);
                 setPlayOnce(false);
             });
@@ -49,7 +49,7 @@ const Countries = () => {
             <ul className="countries-list">
             {
                 sortedData.filter((country) => country.region.includes(selectedRadio)).map((country) =>{
-                    return <Card key={country.name} country={country} className="countries"/>
+                    return <Card key={country.name.common} country={country} className="countries"/>
                 })
      
             }
